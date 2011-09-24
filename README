@@ -1,1 +1,11 @@
-This is a collabrative effot by the St. Olaf chapter of ACM to build a game from scratch.
+This is a collabrative effot by the St. Olaf chapter of the ACM to build a game from scratch.
+
+The main directory contains the immoral engine, our homebrew game engine that will power the game. The test directory holds tests of this engine, and a directory for the game itself will be added. Currently the engine is compiled as a shared object, though this is subject to change.
+
+Dependencies include:
+* OpenGL
+* GLFW
+
+This project is hosted on github: https://github.com/garrity-patrick/acm-game-11
+
+For more information, please contact Patrick Garrity (garrity.lapis@gmail.com)
