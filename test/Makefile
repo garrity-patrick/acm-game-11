@@ -16,7 +16,7 @@ default: test
 
 .PHONY : clean
 clean:
-	rm -f build/*.o bin/*
+	rm -f build/*.o bin/test
 
 .PHONY : compile
 compile: build/test.o
