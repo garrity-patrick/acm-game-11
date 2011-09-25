@@ -1,6 +1,16 @@
 #ifndef _IMMORAL_GAME_HPP_
 #define _IMMORAL_GAME_HPP_
 
+/*!
+ * \file game.hpp
+ * \author Patrick Garrity
+ * 
+ * Contains the definition of the game class. This class is intended to be the
+ * starting-point for games built using this engine. It provides an interface
+ * for game functions, provides access to resources (etc.), and provides a
+ * default game loop.
+ */
+
 #include <GL/glfw.h>
 #include "window_settings.hpp"
 
@@ -27,6 +37,11 @@ namespace immoral
 		glPopMatrix();
 	}
 	
+	/*!
+	 * \class game
+	 * 
+	 * Main class of the immoral engine.
+	 */
 	class game
 	{
 	protected:
@@ -40,6 +55,7 @@ namespace immoral
 		virtual ~game(void);
 		
 		void set_window(window_settings win);
+		window_settings get_window(void) const { return m_window; }
 		
 		virtual void initialize(void);
 		virtual void load_content(void);
