@@ -15,11 +15,6 @@ namespace immoral
 	{
 	}
 	
-	void game::set_window(window_settings win)
-	{
-		m_window = win;
-	}
-	
 	void game::initialize(void)
 	{
 	}
@@ -28,11 +23,11 @@ namespace immoral
 	{
 	}
 	
-	void game::update(float elapsed)
+	void game::update(f32 elapsed)
 	{
 	}
 	
-	void game::draw(float elapsed)
+	void game::draw(f32 elapsed)
 	{
 	}
 	
@@ -50,7 +45,7 @@ namespace immoral
 		glfwOpenWindowHint(GLFW_WINDOW_NO_RESIZE, GL_TRUE);
 		
 		// Create a window with the set window parameters.
-		int mode = GLFW_WINDOW;
+		int32 mode = GLFW_WINDOW;
 		if (m_window.fullscreen) mode = GLFW_FULLSCREEN;
 		
 		if (!glfwOpenWindow(

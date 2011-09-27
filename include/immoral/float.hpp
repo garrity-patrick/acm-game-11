@@ -2,19 +2,21 @@
 #define _IMMORAL_FLOAT_HPP_
 
 /*!
- * \file float.hpp
+ * \file f32.hpp
  * \author Patrick Garrity
  * 
  * Contains utility functions to handle floating-point calculations. These are 
  * meant to help deal with floating-point error and related problems.
  */
 
+#include "immoral/types.hpp"
+
 namespace immoral
 {
 	/*!
 	 * The epsilon value to use for floating-point comparisions.
 	 */
-	const float FLOAT_EPSILON = 0.00001f;
+	const f32 FLOAT_EPSILON = 0.00001f;
 	
 	/*!
 	 * Determine the equality of two floating-point numbers.
@@ -23,7 +25,7 @@ namespace immoral
 	 * \param y The second number.
 	 * \return Whether or not the two numbers are equal.
 	 */
-	inline bool feq(float x, float y)
+	inline bool feq(f32 x, f32 y)
 	{
 		return ((y >= (x - FLOAT_EPSILON))
 			&& (y <= (x + FLOAT_EPSILON)));
@@ -36,7 +38,7 @@ namespace immoral
 	 * \param y The second number.
 	 * \return Whether or not the two numbers are not equal.
 	 */
-	inline bool fneq(float x, float y)
+	inline bool fneq(f32 x, f32 y)
 	{
 		return ((y < (x - FLOAT_EPSILON))
 			|| (y > (x + FLOAT_EPSILON)));
@@ -49,7 +51,7 @@ namespace immoral
 	 * \param y The second number.
 	 * \return The boolean result of (x < y).
 	 */
-	inline bool flt(float x, float y)
+	inline bool flt(f32 x, f32 y)
 	{
 		return (x < (y - FLOAT_EPSILON));
 	}
@@ -61,7 +63,7 @@ namespace immoral
 	 * \param y The second number.
 	 * \return The boolean result of (x <= y).
 	 */
-	inline bool flte(float x, float y)
+	inline bool flte(f32 x, f32 y)
 	{
 		return (x <= (y - FLOAT_EPSILON));
 	}
@@ -73,7 +75,7 @@ namespace immoral
 	 * \param y The second number.
 	 * \return The boolean result of (x > y).
 	 */
-	inline bool fgt(float x, float y)
+	inline bool fgt(f32 x, f32 y)
 	{
 		return (x > (y + FLOAT_EPSILON));
 	}
@@ -85,7 +87,7 @@ namespace immoral
 	 * \param y The second number.
 	 * \return The boolean result of (x >= y).
 	 */
-	inline bool fgte(float x, float y)
+	inline bool fgte(f32 x, f32 y)
 	{
 		return (x >= (y + FLOAT_EPSILON));
 	}
@@ -97,7 +99,7 @@ namespace immoral
 	 * \param high The upper bound of the range.
 	 * \return The clamped value.
 	 */
-	inline float clamp(float x, float low, float high)
+	inline f32 clamp(f32 x, f32 low, f32 high)
 	{
 		if (x > high) return high;
 		if (x < low)  return low;

@@ -8,6 +8,8 @@
  * Contains the definition of a 2-dimensional vector.
  */
 
+#include "immoral/types.hpp"
+
 namespace immoral
 {
 	/*!
@@ -23,7 +25,7 @@ namespace immoral
 		 * These are stored in an array to guarantee they are (1) contiguous
 		 * and (2) easy to pass to OpenGL functions.
 		 */
-		float m_xy[2];
+		f32 m_xy[2];
 	
 	public:
 		/*!
@@ -42,7 +44,7 @@ namespace immoral
 		 * \param x The x-component of the vector.
 		 * \param y The y-component of the vector.
 		 */
-		vector2(float x, float y);
+		vector2(f32 x, f32 y);
 		
 		/*!
 		 * Destructor.
@@ -53,38 +55,38 @@ namespace immoral
 		 * Get the x-component of this vector2.
 		 * \return The x-component (rvalue).
 		 */
-		const float & x(void) const { return m_xy[0]; }
+		const f32 & x(void) const { return m_xy[0]; }
 		
 		/*!
 		 * Get the x-component of this vector2.
 		 * \return The x-component (lvalue).
 		 */
-		float & x(void) { return m_xy[0]; }
+		f32 & x(void) { return m_xy[0]; }
 		
 		/*!
 		 * Get the y-component of this vector2.
 		 * \return The y-component (rvalue).
 		 */
-		const float & y(void) const { return m_xy[1]; }
+		const f32 & y(void) const { return m_xy[1]; }
 		
 		/*!
 		 * Get the y-component of this vector2.
 		 * \return The y-component (lvalue).
 		 */
-		float & y(void) { return m_xy[1]; }
+		f32 & y(void) { return m_xy[1]; }
 		
 		/*!
 		 * Set the components of this vector2.
 		 * \param x The new x-component.
 		 * \param y The new y-component.
 		 */
-		void set(float x, float y) { m_xy[0] = x; m_xy[1] = y; }
+		void set(f32 x, f32 y) { m_xy[0] = x; m_xy[1] = y; }
 		
 		/*!
 		 * Get the components of this vector.
 		 * \return The components array.
 		 */
-		const float * components(void) const { return m_xy; }
+		const f32 * components(void) const { return m_xy; }
 		
 		/*!
 		 * Overloaded assignment operator.
@@ -136,7 +138,7 @@ namespace immoral
 		 * \param scalar The value to scale by.
 		 * \return The scaled vector.
 		 */
-		vector2 operator*(float scalar) const;
+		vector2 operator*(f32 scalar) const;
 		
 		/*!
 		 * Overloaded times operator.
@@ -145,7 +147,7 @@ namespace immoral
 		 * \param v The vector to dot with.
 		 * \return The dot product of the two vectors.
 		 */
-		float operator*(const vector2 & v) const;
+		f32 operator*(const vector2 & v) const;
 		
 		/*!
 		 * Overloaded plus-equals operator.
@@ -166,7 +168,7 @@ namespace immoral
 		 * \param scalar The value to scale by.
 		 * \return A reference to this vector2.
 		 */
-		vector2 & operator*(float scalar);
+		vector2 & operator*(f32 scalar);
 		
 		/*!
 		 * Add a vector2.
@@ -184,40 +186,40 @@ namespace immoral
 		 * Scale this vector2.
 		 * \param scalar The value to scale by.
 		 */
-		void scale(float scalar);
+		void scale(f32 scalar);
 		
 		/*!
 		 * Calculate the dot product of two vectors.
 		 * \param v The vector2 to dot with.
 		 * \return The dot product.
 		 */
-		float dot(const vector2 & v);
+		f32 dot(const vector2 & v);
 		
 		/*!
 		 * Calculate the magnitude of this vector2.
 		 * \return The magnitude of this vector.
 		 */
-		float mag(void) const;
+		f32 mag(void) const;
 		
 		/*!
 		 * Calculate the squared magnitude of this vector2.
 		 * \return The squared magnitude of this vector.
 		 */
-		float mag2(void) const;
+		f32 mag2(void) const;
 		
 		/*!
 		 * Calculate the distance between two vector2.
 		 * \param v The vector2 to find the distance to.
 		 * \return The distance between the vectors.
 		 */
-		float distance(const vector2 & v) const;
+		f32 distance(const vector2 & v) const;
 		
 		/*!
 		 * Calculate the squared distance between two vector2.
 		 * \param v The vector2 to find the distance to.
 		 * \return The distance between the vectors squared.
 		 */
-		float distance2(const vector2 & v) const;
+		f32 distance2(const vector2 & v) const;
 		
 		/*!
 		 * Normalize this vector.

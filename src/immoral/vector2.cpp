@@ -16,7 +16,7 @@ namespace immoral
 		m_xy[1] = other.m_xy[1];
 	}
 	
-	vector2::vector2(float x, float y)
+	vector2::vector2(f32 x, f32 y)
 	{
 		m_xy[0] = x;
 		m_xy[1] = y;
@@ -61,7 +61,7 @@ namespace immoral
 		return u;
 	}
 	
-	vector2 vector2::operator*(float scalar) const
+	vector2 vector2::operator*(f32 scalar) const
 	{
 		vector2 u(*this);
 		u.m_xy[0] *= scalar;
@@ -69,7 +69,7 @@ namespace immoral
 		return u;
 	}
 	
-	float vector2::operator*(const vector2 & v) const
+	f32 vector2::operator*(const vector2 & v) const
 	{
 		return (m_xy[0] * v.m_xy[0]) + (m_xy[1] * v.m_xy[1]);
 	}
@@ -88,7 +88,7 @@ namespace immoral
 		return *this;
 	}
 	
-	vector2 & vector2::operator*(float scalar)
+	vector2 & vector2::operator*(f32 scalar)
 	{
 		m_xy[0] *= scalar;
 		m_xy[1] *= scalar;
@@ -107,33 +107,33 @@ namespace immoral
 		m_xy[1] -= v.m_xy[1];
 	}
 	
-	void vector2::scale(float scalar)
+	void vector2::scale(f32 scalar)
 	{
 		m_xy[0] *= scalar;
 		m_xy[1] *= scalar;
 	}
 	
-	float vector2::dot(const vector2 & v)
+	f32 vector2::dot(const vector2 & v)
 	{
 		return (m_xy[0] * v.m_xy[0]) + (m_xy[1] * v.m_xy[1]);
 	}
 	
-	float vector2::mag(void) const
+	f32 vector2::mag(void) const
 	{
 		return sqrt(mag2);
 	}
 	
-	float vector2::mag2(void) const
+	f32 vector2::mag2(void) const
 	{
 		return (m_xy[0] * m_xy[0]) + (m_xy[1] * m_xy[1]);
 	}
 	
-	float vector2::distance(const vector2 & v) const
+	f32 vector2::distance(const vector2 & v) const
 	{
 		return sqrt(distance2(v));
 	}
 	
-	float vector2::distance2(const vector2 & v) const
+	f32 vector2::distance2(const vector2 & v) const
 	{
 		return ((v.m_xy[0] - m_xy[0]) * (v.m_xy[0] - m_xy[0]))
 			+  ((v.m_xy[1] - m_xy[1]) * (v.m_xy[1] - m_xy[1]));
@@ -141,7 +141,7 @@ namespace immoral
 	
 	void vector2::normalize(void)
 	{
-		float m = mag();
+		f32 m = mag();
 		if (fneq(0.0f, m)) { m_xy[0] /= m; m_xy[1] /= m; }
 	}
 	

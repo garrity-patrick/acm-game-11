@@ -22,7 +22,13 @@ public:
 	
 	void draw(float elapsed)
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		
+		glBegin(GL_TRIANGLES);
+		glColor3ub(255, 0, 0); glVertex2d(0, 0);
+		glColor3ub(0, 255, 0); glVertex2d(100, 0);
+		glColor3ub(0, 0, 255); glVertex2d(50, 50);
+		glEnd();
 	}
 };
 
@@ -42,7 +48,7 @@ int main(int argc, char ** argv)
 	win.depthbits = 0;
 	win.stencilbits = 0;
 	win.fullscreen = false;
-	t->set_window(win);
+	t->set_window_settings(win);
 	
 	int result = t->run();
 	delete t;

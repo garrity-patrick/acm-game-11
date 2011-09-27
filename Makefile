@@ -1,5 +1,5 @@
 GLFW_INSTALL=/usr/local
-#GLFW_INCLUDE=$(GLFW_INSTALL)/include
+GLFW_INCLUDE=$(GLFW_INSTALL)/include
 GLFW_LIB=$(GLFW_INSTALL)/lib
 
 GL_LIB=/usr/lib
@@ -15,7 +15,7 @@ build/immoral/game.o
 ################################################################################
 ### Top-Level Targets
 ################################################################################
-default: compile
+default: lib
 
 .PHONY : clean
 clean:

@@ -12,31 +12,12 @@
  */
 
 #include <GL/glfw.h>
-#include "window_settings.hpp"
+#include "immoral/types.hpp"
+#include "immoral/window_settings.hpp"
+#include "immoral/glutility.hpp"
 
 namespace immoral
-{
-	void gl_enable_2d(void)
-	{
-		int vport[4];
-		glGetIntegerv(GL_VIEWPORT, vport);
-		glMatrixMode(GL_PROJECTION);
-		glPushMatrix();
-		glLoadIdentity();
-		glOrtho(0, vport[2], 0, vport[3], -1, 1);
-		glMatrixMode(GL_MODELVIEW);
-		glPushMatrix();
-		glLoadIdentity();
-	}
-	
-	void gl_disable_2d(void)
-	{
-		glMatrixMode(GL_PROJECTION);
-		glPopMatrix();
-		glMatrixMode(GL_MODELVIEW);
-		glPopMatrix();
-	}
-	
+{	
 	/*!
 	 * \class game
 	 * 
@@ -45,23 +26,79 @@ namespace immoral
 	class game
 	{
 	protected:
+		/*!
+		 * The settings of the window managed by GLFW.
+		 */
 		window_settings m_window;
+		
+		/*!
+		 * Is this game currently running?
+		 */
 		bool m_running;
-		float m_elapsed_update;
-		float m_elapsed_draw;
+		
+		/*!
+		 * The elapsed time in terms of the update function.
+		 */
+		f32 m_elapsed_update;
+		
+		/*!
+		 * The elapsed time between iterations of the game loop.
+		 */
+		f32 m_elapsed_draw;
 	
 	public:
+		/*!
+		 * Constructor.
+		 */
 		game(void);
+		
+		/*!
+		 * Destructor.
+		 */
 		virtual ~game(void);
 		
-		void set_window(window_settings win);
-		window_settings get_window(void) const { return m_window; }
+		/*!
+		 * Set the window settings for this game.
+		 * \param win The new window settings.
+		 */
+		void set_window_settings(window_settings win) { m_window = win; }
 		
+		/*!
+		 * Get the window settings for this game.
+		 * \return The window settings.
+		 */
+		window_settings get_window_settings(void) const { return m_window; }
+		
+		/*!
+		 * Initialize class objects.
+		 */
 		virtual void initialize(void);
-		virtual void load_content(void);
-		virtual void update(float elapsed);
-		virtual void draw(float elapsed);
 		
+		/*!
+		 * Load game content such as textures and levels.
+		 */
+		virtual void load_content(void);
+		
+		/*!
+		 * Update the game.
+		 * \param elapsed The time that has elapsed since the last call to this
+		 * function.
+		 */
+		virtual void update(f32 elapsed);
+		
+		/*!
+		 * Render the game to the screen.
+		 * \param elapsed The time that has elapsed since the last call to this
+		 * function.
+		 */
+		virtual void draw(f32 elapsed);
+		
+		/*!
+		 * Run the game. This function provides a default game loop that updates
+		 * at 100 FPS. This function calls initialize and load_content before
+		 * starting the game loop.
+		 * \return The return status of the game (0 = normal termination).
+		 */
 		int run(void);
 	};
 }
