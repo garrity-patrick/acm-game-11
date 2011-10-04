@@ -1,0 +1,35 @@
+/**
+** macript.pl usage:
+** macript.pl converts macro-like structures in the code
+** to the value returned by an executable in the same directory as macript.pl
+** whose name matches the name of the macro.
+**
+** * Macros should be prefixed with an '@' sign.
+** 
+** * The name of the macro should match the executable you want to recieve the value
+**   inside the macro as a command line argument.
+** 
+** * In-source example: 
+**   //BEGIN
+**   cout << @U64_HASH("hello") << endl;
+**   //END
+** 
+**   macript will output:
+**   //BEGIN
+**   cout << 192527 << endl;
+**   //END
+**   
+** 
+** * To run macript.pl on the command line: 
+**   ./macript.pl -b BEGIN -e END -x [file extension of executable] -p [prefix] [source_file_path]
+**   For example: ./macript.pl -b BEGIN -e END -x exe -p @ compile_test.cpp
+** 
+** * Above example modified to send output to a new source file:
+**   ./macript.pl -b BEGIN -e END -x exe -p @ compile_test.cpp > ready_for_compilation.cpp
+**    
+** * Put in the makefile:
+**   macript -b BEGIN -e END -x exe -p @ $< : gcc -x c++ - -o $@
+** 
+** 
+** 
+**/

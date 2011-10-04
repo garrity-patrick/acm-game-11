@@ -1,0 +1,7 @@
+Macript searches input sources for anything that looks like a macro invocation
+(NAME(PARAMS)). It then replaces those invocations with the result of invoking
+the corresponding executable with the given arguments, if such an executable
+exists in the directory where macript is invoked. Results are sent to standard
+output, presumably for piping to a compiler or interpreter.
+
+See "perldoc macript.pl" for more information.
