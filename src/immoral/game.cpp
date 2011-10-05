@@ -82,6 +82,8 @@ namespace immoral
 		
 		while (m_running)
 		{
+			if (!glfwGetWindowParam(GLFW_OPENED)) { m_running = false; break; }
+			
 			// Calculate the elapsed time.
 			actual_elapsed_time = clock() - tick_count;
 			elapsed_time += actual_elapsed_time;

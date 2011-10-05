@@ -14,17 +14,16 @@ LFLAGS=-Wall -L$(IMMORAL_LIB) -L$(GLFW_LIB) -L$(GL_LIB) -limmoral -lGL -lGLU -lg
 
 OBJECTS=\
 build/test.o \
-build/datatype_test.o
+build/multitexture.o
 
 TESTS=\
 bin/test \
-bin/datatype_test
 
 default: link
 
 .PHONY : clean
 clean:
-	rm -f build/*.o bin/test
+	rm -f build/*.o bin/*test*
 
 .PHONY : compile
 compile: $(OBJECTS)
@@ -38,8 +37,8 @@ build/test.o: src/test.cpp
 build/datatype_test.o: src/datatype_test.cpp
 	$(CC) $(CFLAGS) -c src/datatype_test.cpp -o build/datatype_test.o
 
-bin/test: build/test.o
-	$(CC) $(LFLAGS) -o bin/test build/test.o
+build/multitexture.o: src/multitexture.cpp
+	$(CC) $(CFLAGS) -c src/multitexture.cpp -o build/multitexture.o
 
-bin/datatype_test: build/datatype_test.o
-	$(CC) $(LFLAGS) -o bin/datatype_test build/datatype_test.o
+bin/test: $(OBJECTS)
+	$(CC) $(LFLAGS) -o bin/test $(OBJECTS)

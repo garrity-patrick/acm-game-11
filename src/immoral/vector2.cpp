@@ -33,6 +33,8 @@ namespace immoral
 			m_xy[0] = other.m_xy[0];
 			m_xy[1] = other.m_xy[1];
 		}
+		
+		return *this;
 	}
 	
 	bool vector2::operator==(const vector2 & v) const
@@ -120,7 +122,7 @@ namespace immoral
 	
 	f32 vector2::mag(void) const
 	{
-		return sqrt(mag2);
+		return (float)sqrt((double)mag2());
 	}
 	
 	f32 vector2::mag2(void) const
@@ -130,7 +132,7 @@ namespace immoral
 	
 	f32 vector2::distance(const vector2 & v) const
 	{
-		return sqrt(distance2(v));
+		return (float)sqrt((double)distance2(v));
 	}
 	
 	f32 vector2::distance2(const vector2 & v) const
