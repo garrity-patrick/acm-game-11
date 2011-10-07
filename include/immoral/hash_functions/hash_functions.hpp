@@ -9,7 +9,7 @@
  * identify and rapidly compare strings.
  */
 
-#include immoral/types.hpp
+#include "immoral/types.hpp"
 
 namespace immoral
 {
