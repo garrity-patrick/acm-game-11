@@ -38,3 +38,5 @@ namespace immoral
 	}
 
 }
+
+#endif //_IMMORAL_HASH_FUNCTIONS_HPP_
