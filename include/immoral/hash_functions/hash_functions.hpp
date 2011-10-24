@@ -9,7 +9,7 @@
  * identify and rapidly compare strings.
  */
 
-#include immoral/types.hpp
+#include "immoral/types.hpp"
 
 namespace immoral
 {
@@ -38,3 +38,5 @@ namespace immoral
 	}
 
 }
+
+#endif //_IMMORAL_HASH_FUNCTIONS_HPP_
